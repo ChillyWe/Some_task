@@ -1,74 +1,71 @@
 public class Table {
 
-    private Knight knight;
-
-    public Table(Knight knight) {
-        this.knight = knight;
+    public Table() {
     }
 
-    public void drawnTable() {
-        System.out.print(repeatString(" ", 15) + 1
-                + repeatString(" ", 8) + 2
-                + repeatString(" ", 8) + 3);
+    public void drawnTable(Knight knight) {
+        System.out.print(repeatString(" ", 12) + 1
+                + repeatString(" ", 7) + 2
+                + repeatString(" ", 7) + 3);
         System.out.println();
         drawnLine();
 
-        if (this.knight.getX() != 1) {
+        if (knight.getX() != 1) {
             drawnClearRow(1);
         } else {
-            drawnRowWithKnight(1);
+            drawnRowWithKnight(1, knight);
         }
         drawnLine();
 
-        if (this.knight.getX() != 2) {
+        if (knight.getX() != 2) {
             drawnClearRow(2);
         } else {
-            drawnRowWithKnight(2);
+            drawnRowWithKnight(2, knight);
         }
         drawnLine();
 
-        if (this.knight.getX() != 3) {
+        if (knight.getX() != 3) {
             drawnClearRow(3);
         } else {
-            drawnRowWithKnight(3);
+            drawnRowWithKnight(3, knight);
         }
         drawnLine();
     }
 
     private void drawnLine() {
-        System.out.print(repeatString(" ", 12)
-                + (repeatString("-", 20)));
+        System.out.print(repeatString(" ", 8)
+                + (repeatString("-", 25)));
         System.out.println();
     }
 
     private void drawnClearRow(Integer rowNumber) {
-        System.out.print(repeatString(" ", 7) + rowNumber + " " + "|"
-                + (repeatString(" ", 8) + "|")
-                + (repeatString(" ", 8) + "|")
-                + (repeatString(" ", 8) + "|"));
+        System.out.print(repeatString(" ", 6) + rowNumber + " " + "|"
+                + (repeatString(" ", 7) + "|")
+                + (repeatString(" ", 7) + "|")
+                + (repeatString(" ", 7) + "|"));
         System.out.println();
     }
 
-    private void drawnRowWithKnight(Integer rowNumber) {
+    private void drawnRowWithKnight(Integer rowNumber, Knight knight) {
 
-        System.out.print(repeatString(" ", 7) + rowNumber + " " + "|");
+        System.out.print(repeatString(" ", 6) + rowNumber + " " + "|");
 
-        if (this.knight.getY() == 1) {
-            System.out.print(repeatString(" ", 3) + "X" + repeatString(" ", 4) + "|");
+        if (knight.getY() == 1) {
+            System.out.print(repeatString(" ", 3) + "X" + repeatString(" ", 3) + "|");
         } else {
-            System.out.print((repeatString(" ", 8) + "|"));
+            System.out.print((repeatString(" ", 7) + "|"));
         }
 
-        if (this.knight.getY() == 2) {
-            System.out.print(repeatString(" ", 3) + "X" + repeatString(" ", 4) + "|");
+        if (knight.getY() == 2) {
+            System.out.print(repeatString(" ", 3) + "X" + repeatString(" ", 3) + "|");
         } else {
-            System.out.print((repeatString(" ", 8) + "|"));
+            System.out.print((repeatString(" ", 7) + "|"));
         }
 
-        if (this.knight.getY() == 3) {
-            System.out.print(repeatString(" ", 3) + "X" + repeatString(" ", 4) + "|");
+        if (knight.getY() == 3) {
+            System.out.print(repeatString(" ", 3) + "X" + repeatString(" ", 3) + "|");
         } else {
-            System.out.print((repeatString(" ", 8) + "|"));
+            System.out.print((repeatString(" ", 7) + "|"));
         }
 
 

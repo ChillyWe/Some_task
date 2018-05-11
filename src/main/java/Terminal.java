@@ -5,8 +5,12 @@ public class Terminal {
     public static void main(String[] args) {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-        Knight knight = new Knight(2, 2);
-        Table table = new Table(knight);
-        table.drawnTable();
+        try {
+            Knight knight = new Knight(1, 2);
+            Table table = new Table();
+            table.drawnTable(knight);
+        } catch (IllegalArgumentException iae) {
+            System.out.println(iae.getMessage());
+        }
     }
 }
