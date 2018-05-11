@@ -42,7 +42,7 @@ public class KnightsTour {
 
     public static void main(String[] args) {
 
-        for (int i = 1; i < 20; i++) {
+        for (int i = 1; i < 4; i++) {
             KnightsTour kt = new KnightsTour(3, i);
             kt.solve();
             System.out.println("<td>"+kt.solutionsCount+"</td>");
@@ -87,7 +87,6 @@ public class KnightsTour {
     private List<Coords> getFields(int x, int y) {
         List<Coords> l = new ArrayList<Coords>();
         if (x + 2 < xSize && y - 1 >= 0)
-
             l.add(new Coords(x + 2, y - 1)); //right and upward
         if (x + 1 < xSize && y - 2 >= 0)
             l.add(new Coords(x + 1, y - 2)); //upward and right
