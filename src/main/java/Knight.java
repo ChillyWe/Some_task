@@ -11,6 +11,34 @@ public class Knight {
         this.y = y;
     }
 
+    public void move(String direction) {
+
+        switch (direction) {
+            case "up":
+                this.x = 1;
+                break;
+            case "down":
+                this.x = 3;
+                break;
+            case "left":
+                if (this.y > 1) {
+                    this.y -= 1;
+                } else {
+                    System.out.println("You can't move left");
+                }
+                break;
+            case "right":
+                this.y += 1;
+                if (this.y > 3) {
+                    System.out.println("You can't move right");
+                    this.y -= 1;
+                }
+                break;
+                default:
+                    System.out.println("You need to chose one direction (up/down/left/right)");
+        }
+    }
+
     public Integer getX() {
         return x;
     }

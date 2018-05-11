@@ -13,15 +13,26 @@ public class Table {
         System.out.println();
         drawnLine();
 
-        drawnRow(1);
+        if (this.knight.getX() != 1) {
+            drawnClearRow(1);
+        } else {
+            drawnRowWithKnight(1);
+        }
         drawnLine();
 
-        drawnRow(2);
+        if (this.knight.getX() != 2) {
+            drawnClearRow(2);
+        } else {
+            drawnRowWithKnight(2);
+        }
         drawnLine();
 
-        drawnRow(3);
+        if (this.knight.getX() != 3) {
+            drawnClearRow(3);
+        } else {
+            drawnRowWithKnight(3);
+        }
         drawnLine();
-
     }
 
     private void drawnLine() {
@@ -30,11 +41,37 @@ public class Table {
         System.out.println();
     }
 
-    private void drawnRow(Integer rowNumber) {
+    private void drawnClearRow(Integer rowNumber) {
         System.out.print(repeatString(" ", 7) + rowNumber + " " + "|"
                 + (repeatString(" ", 8) + "|")
                 + (repeatString(" ", 8) + "|")
                 + (repeatString(" ", 8) + "|"));
+        System.out.println();
+    }
+
+    private void drawnRowWithKnight(Integer rowNumber) {
+
+        System.out.print(repeatString(" ", 7) + rowNumber + " " + "|");
+
+        if (this.knight.getY() == 1) {
+            System.out.print(repeatString(" ", 3) + "X" + repeatString(" ", 4) + "|");
+        } else {
+            System.out.print((repeatString(" ", 8) + "|"));
+        }
+
+        if (this.knight.getY() == 2) {
+            System.out.print(repeatString(" ", 3) + "X" + repeatString(" ", 4) + "|");
+        } else {
+            System.out.print((repeatString(" ", 8) + "|"));
+        }
+
+        if (this.knight.getY() == 3) {
+            System.out.print(repeatString(" ", 3) + "X" + repeatString(" ", 4) + "|");
+        } else {
+            System.out.print((repeatString(" ", 8) + "|"));
+        }
+
+
         System.out.println();
     }
 
