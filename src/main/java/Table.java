@@ -1,44 +1,84 @@
+
+/*
+    Helper class for drowning 3*3 chess board with knight on it
+*/
+
+
 public class Table {
 
     public Table() {
     }
 
+    /**
+     *  main method for drawnTable
+     *
+     * @param knight
+     */
+
     public void drawnTable(Knight knight) {
+        /*
+        first row with under line
+         */
         System.out.print(repeatString(" ", 12) + 1
                 + repeatString(" ", 7) + 2
                 + repeatString(" ", 7) + 3);
         System.out.println();
-        drawnLine();
+        writeLine();
 
-        if (knight.getX() != 1) {
-            drawnClearRow(1);
+        /*
+        second row with under line
+         */
+        if (knight.getY() != 1) {
+            writeClearRow(1);
         } else {
-            drawnRowWithKnight(1, knight);
+            writeRowWithKnight(1, knight);
         }
-        drawnLine();
+        writeLine();
 
-        if (knight.getX() != 2) {
-            drawnClearRow(2);
+        /*
+        third row with under line
+         */
+        if (knight.getY() != 2) {
+            writeClearRow(2);
         } else {
-            drawnRowWithKnight(2, knight);
+            writeRowWithKnight(2, knight);
         }
-        drawnLine();
+        writeLine();
 
-        if (knight.getX() != 3) {
-            drawnClearRow(3);
+        /*
+        last row with under line
+         */
+        if (knight.getY() != 3) {
+            writeClearRow(3);
         } else {
-            drawnRowWithKnight(3, knight);
+            writeRowWithKnight(3, knight);
         }
-        drawnLine();
+        writeLine();
+
+        System.out.println();
+        System.out.println();
+
+        /*
+        winners only
+         */
+        if (knight.getX() == 3 && knight.getY() == 3) {
+            System.out.println("              KNIGHT WIN ");
+        }
     }
 
-    private void drawnLine() {
+    /*
+    write under line
+     */
+    private void writeLine() {
         System.out.print(repeatString(" ", 8)
                 + (repeatString("-", 25)));
         System.out.println();
     }
 
-    private void drawnClearRow(Integer rowNumber) {
+    /*
+    write row without knight
+     */
+    private void writeClearRow(Integer rowNumber) {
         System.out.print(repeatString(" ", 6) + rowNumber + " " + "|"
                 + (repeatString(" ", 7) + "|")
                 + (repeatString(" ", 7) + "|")
@@ -46,31 +86,40 @@ public class Table {
         System.out.println();
     }
 
-    private void drawnRowWithKnight(Integer rowNumber, Knight knight) {
+    /*
+    write row with knight
+     */
+    private void writeRowWithKnight(Integer rowNumber, Knight knight) {
 
         System.out.print(repeatString(" ", 6) + rowNumber + " " + "|");
 
-        if (knight.getY() == 1) {
+        if (knight.getX() == 1) {
             System.out.print(repeatString(" ", 3) + "X" + repeatString(" ", 3) + "|");
         } else {
             System.out.print((repeatString(" ", 7) + "|"));
         }
 
-        if (knight.getY() == 2) {
+        if (knight.getX() == 2) {
             System.out.print(repeatString(" ", 3) + "X" + repeatString(" ", 3) + "|");
         } else {
             System.out.print((repeatString(" ", 7) + "|"));
         }
 
-        if (knight.getY() == 3) {
+        if (knight.getX() == 3) {
             System.out.print(repeatString(" ", 3) + "X" + repeatString(" ", 3) + "|");
         } else {
             System.out.print((repeatString(" ", 7) + "|"));
         }
-
-
         System.out.println();
     }
+
+    /**
+     * helping method for concatenate repeated string
+     *
+     * @param strToRepeat text to repeat
+     * @param count how many times to repeat
+     * @return String result
+     */
 
     private String repeatString(String strToRepeat, int count) {
         String text = "";
