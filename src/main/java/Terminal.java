@@ -9,10 +9,17 @@ public class Terminal {
         Table table = new Table();
 
         try {
-            System.out.print("java <program>");
-            String[] line = reader.readLine().split("");
+            /*
+            program start here
+            you need to enter two integers for starting position
+            e.g. java <program> 1 2 --> where 1 is x co-ordinate and 2 is y
+             */
+            System.out.print("java <program> ");
+            String[] line = reader.readLine().split(" ");
 
-
+            /*
+            create knight with start coordinate and write table with that knight
+             */
             Knight knight = new Knight(Integer.parseInt(line[0]), Integer.parseInt(line[1]));
             table.drawnTable(knight);
 
@@ -22,6 +29,9 @@ public class Terminal {
                     break;
                 }
 
+                /*
+                next step
+                 */
                 knight = knight.goForTheWin(knight);
                 table.drawnTable(knight);
             }
